@@ -26,6 +26,7 @@ namespace RpgCampanhas.Controllers
                 Nome = u.Nome,
                 Descricao = u.Descricao,
                 MestreId = u.MestreId,
+                MestreNome = u.Mestre.Nome
             });
             return Ok(campanhasDto);
         }

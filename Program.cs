@@ -17,8 +17,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICampanhaRepository, CampanhaRepository>();
+builder.Services.AddScoped<IPersonagemRepository, PersonagemRepository>();
+
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ICampanhaService, CampanhaService>();
+builder.Services.AddScoped<IPersonagemService, PersonagemService>();
 
 builder.Services.AddCors(options =>
 {
