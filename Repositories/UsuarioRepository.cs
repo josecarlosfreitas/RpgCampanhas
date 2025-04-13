@@ -7,6 +7,9 @@ namespace RpgCampanhas.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        private const string TIPO_MESTRE = "mestre";
+        private const string TIPO_JOGADOR = "jogador";
+
         private readonly AppDbContext _context;
 
         public UsuarioRepository(AppDbContext context)
@@ -46,6 +49,16 @@ namespace RpgCampanhas.Repositories
                 _context.Usuarios.Remove(usuario);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<Usuario>> GetMestres()
+        {
+            return await _context.Usuarios.Where(u => u.Tipo == TIPO_MESTRE).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Usuario>> GetJogadores()
+        {
+            return await _context.Usuarios.Where(u => u.Tipo == TIPO_JOGADOR).ToListAsync();
         }
 
     }

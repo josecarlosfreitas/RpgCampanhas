@@ -72,7 +72,7 @@ namespace RpgCampanhas.Controllers
             {
                 return NotFound();
             }
-            
+
             usuario.Nome = usuarioDTO.Nome;
             usuario.Email = usuarioDTO.Email;
             usuario.Senha = usuarioDTO.Senha;
@@ -95,5 +95,34 @@ namespace RpgCampanhas.Controllers
             return NoContent();
         }
 
+        [HttpGet("mestres")]
+        public async Task<ActionResult<IEnumerable<UsuarioDTO>>> GetMestres()
+        {
+            var mestres = await _usuarioService.GetMestres();
+            var mestresDto = mestres.Select(u => new UsuarioDTO
+            {
+                Id = u.Id,
+                Nome = u.Nome,
+                Email = u.Email,
+                Senha = u.Senha,
+                Tipo = u.Tipo
+            });
+            return Ok(mestresDto);
+        }
+
+        [HttpGet("jogadores")]
+        public async Task<ActionResult<IEnumerable<UsuarioDTO>>> GetJogadores()
+        {
+            var jogadores = await _usuarioService.GetJogadores();
+            var jogadoresDto = jogadores.Select(u => new UsuarioDTO
+            {
+                Id = u.Id,
+                Nome = u.Nome,
+                Email = u.Email,
+                Senha = u.Senha,
+                Tipo = u.Tipo
+            });
+            return Ok(jogadoresDto);
+        }
     }
 }

@@ -37,5 +37,15 @@ namespace RpgCampanhas.Services
         {
             return _usuarioRepository.Delete(id);
         }
+
+        public Task<IEnumerable<Usuario>> GetMestres()
+        {
+            return _usuarioRepository.GetMestres();
+        }
+
+        public Task<IEnumerable<Usuario>> GetJogadores()
+        {
+            return _usuarioRepository.GetJogadores();
+        }
     }
 }

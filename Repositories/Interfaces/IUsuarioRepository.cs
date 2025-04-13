@@ -9,5 +9,7 @@ namespace RpgCampanhas.Repositories.Interfaces
         Task<Usuario> Add(Usuario usuario);
         Task<Usuario> Update(Usuario usuario);
         Task Delete(long id);
+        Task<IEnumerable<Usuario>> GetMestres();
+        Task<IEnumerable<Usuario>> GetJogadores();
     }
 }
