@@ -1,6 +1,6 @@
-﻿namespace RpgCampanhas.Models
+﻿namespace RpgCampanhas.DTO
 {
-    public class Ficha3det
+    public class Ficha3detDTO
     {
         public long Id { get; set; }
         public long? PersonagemId { get; set; }
@@ -24,8 +24,5 @@
         public string? Nome { get; set; }
         public int? PontosDeExperiencia { get; set; }
         public int? Pontos { get; set; }
-
-        public virtual Personagem? Personagem { get; set; }
-        public virtual NPC? Npc { get; set; }
     }
 }
