@@ -25,6 +25,8 @@
         public int? PontosDeExperiencia { get; set; }
         public int? Pontos { get; set; }
 
+        public string ImagePath { get; set; }
+
         public virtual Personagem? Personagem { get; set; }
         public virtual NPC? Npc { get; set; }
     }

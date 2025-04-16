@@ -8,6 +8,8 @@
         public string Descricao { get; set; }
         public string TipoFicha { get; set; }
 
+        public string ImagePath { get; set; }
+
         public virtual Campanha Campanha { get; set; }
         public virtual ICollection<Ficha3det> Ficha3Dets { get; set; }
     }

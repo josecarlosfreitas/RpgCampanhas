@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using RpgCampanhas.Data;
+using RpgCampanhas.Filter;
 using RpgCampanhas.Repositories;
 using RpgCampanhas.Repositories.Interfaces;
 using RpgCampanhas.Services;
@@ -19,11 +21,31 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICampanhaRepository, CampanhaRepository>();
 builder.Services.AddScoped<IPersonagemRepository, PersonagemRepository>();
 builder.Services.AddScoped<IFicha3detRepository, Ficha3detRepository>();
+builder.Services.AddScoped<IGenericRepository, GenericRepository>();
 
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ICampanhaService, CampanhaService>();
 builder.Services.AddScoped<IPersonagemService, PersonagemService>();
 builder.Services.AddScoped<IFicha3detService, Ficha3detService>();
+builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "RpgCampanhas API",
+        Version = "v1",
+        Description = "API para gerenciamento de campanhas de RPG",
+        Contact = new OpenApiContact
+        {
+            Name = "Carlos",
+            Email = "seuemail@exemplo.com",
+            Url = new Uri("https://seusite.com")
+        }
+    });
+});
+
+
 
 builder.Services.AddCors(options =>
 {
@@ -38,7 +60,11 @@ builder.Services.AddCors(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 
 var app = builder.Build();
 
@@ -46,10 +72,15 @@ var app = builder.Build();
 //if (app.Environment.IsDevelopment())
 //{
     app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RpgCampanhas API v1"));
 //}
 
 app.UseCors();
+
+app.UseStaticFiles();
+
+app.UseRouting();
 
 app.UseHttpsRedirection();
 

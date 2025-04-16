@@ -24,5 +24,7 @@
         public string? Nome { get; set; }
         public int? PontosDeExperiencia { get; set; }
         public int? Pontos { get; set; }
+
+        public string? ImagePath { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace RpgCampanhas.Repositories
 
             public async Task<IEnumerable<Campanha>> GetByMestreId(long mestreId)
             {
-                return await _context.Campanhas.Where(c => c.MestreId == mestreId).ToListAsync();
+                return await _context.Campanhas.Include(c => c.Mestre).Where(c => c.MestreId == mestreId).ToListAsync();
             }
       }
 }

@@ -12,7 +12,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\ficha3det\" />
+    <Folder Include="wwwroot\images\campanha\" />
+    <Folder Include="wwwroot\images\npc\" />
+    <Folder Include="wwwroot\images\personagem\" />
   </ItemGroup>
 
 </Project>

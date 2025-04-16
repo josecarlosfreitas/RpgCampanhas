@@ -8,6 +8,8 @@
         public long CampanhaId { get; set; }
         public string TipoFicha { get; set; }
 
+        public string ImagePath { get; set; }
+
         public virtual Usuario Jogador { get; set; }
         public virtual Campanha Campanha { get; set; }
         public virtual ICollection<Ficha3det> Ficha3Dets { get; set; }

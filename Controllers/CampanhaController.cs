@@ -26,7 +26,8 @@ namespace RpgCampanhas.Controllers
                 Nome = u.Nome,
                 Descricao = u.Descricao,
                 MestreId = u.MestreId,
-                MestreNome = u.Mestre.Nome
+                MestreNome = u.Mestre.Nome,
+                ImagePath = u.ImagePath
             });
             return Ok(campanhasDto);
         }
@@ -44,7 +45,8 @@ namespace RpgCampanhas.Controllers
                 Id = campanha.Id,
                 Nome = campanha.Nome,
                 Descricao = campanha.Descricao,
-                MestreId = campanha.MestreId
+                MestreId = campanha.MestreId,
+                ImagePath = campanha.ImagePath
             };
             return Ok(campanhaDto);
         }
@@ -57,6 +59,7 @@ namespace RpgCampanhas.Controllers
                 Nome = campanhaDTO.Nome,
                 Descricao = campanhaDTO.Descricao,
                 MestreId = campanhaDTO.MestreId,
+                ImagePath = ""
             };
             await _campanhaService.Add(campanha);
             return CreatedAtAction(nameof(GetCampanha), new { id = campanha.Id }, campanha);
@@ -102,7 +105,8 @@ namespace RpgCampanhas.Controllers
                 Id = c.Id,
                 Nome = c.Nome,
                 Descricao = c.Descricao,
-                MestreId = c.MestreId
+                MestreId = c.MestreId,
+                ImagePath = c.ImagePath
             });
             
             return Ok(campanhasDto);

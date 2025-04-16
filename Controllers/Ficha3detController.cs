@@ -42,6 +42,7 @@ namespace RpgCampanhas.Controllers
                 TiposDeDano = ficha3det.TiposDeDano,
                 Vantagens = ficha3det.Vantagens,
                 PontosDeVida = ficha3det.PontosDeVida,
+                ImagePath = ficha3det.ImagePath,
             });
             return Ok(ficha3detsDto);
         }
@@ -76,6 +77,7 @@ namespace RpgCampanhas.Controllers
                 TiposDeDano = ficha3det.TiposDeDano,
                 Vantagens = ficha3det.Vantagens,
                 PontosDeVida = ficha3det.PontosDeVida,
+                ImagePath = ficha3det.ImagePath,
             };
             return Ok(ficha3detDto);
         }
@@ -104,6 +106,7 @@ namespace RpgCampanhas.Controllers
                 TiposDeDano = ficha3detDTO.TiposDeDano,
                 Vantagens = ficha3detDTO.Vantagens,
                 PontosDeVida = ficha3detDTO.PontosDeVida,
+                ImagePath = ""
             };
             await _ficha3detService.Add(ficha3det);
             return CreatedAtAction(nameof(GetFicha3det), new { id = ficha3det.Id }, ficha3det);
@@ -182,6 +185,7 @@ namespace RpgCampanhas.Controllers
                 TiposDeDano = ficha3det.TiposDeDano,
                 Vantagens = ficha3det.Vantagens,
                 PontosDeVida = ficha3det.PontosDeVida,
+                ImagePath = ficha3det.ImagePath,
             });
             
             return Ok(ficha3detsDto);
@@ -214,6 +218,7 @@ namespace RpgCampanhas.Controllers
                 TiposDeDano = ficha3det.TiposDeDano,
                 Vantagens = ficha3det.Vantagens,
                 PontosDeVida = ficha3det.PontosDeVida,
+                ImagePath = ficha3det.ImagePath,
             });
 
             return Ok(ficha3detsDto);

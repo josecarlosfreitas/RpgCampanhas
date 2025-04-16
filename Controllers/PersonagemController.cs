@@ -26,6 +26,7 @@ namespace RpgCampanhas.Controllers
                 Nome = u.Nome,
                 CampanhaId = u.CampanhaId,
                 JogadorId = u.JogadorId,
+                ImagePath = u.ImagePath
             });
             return Ok(personagensDto);
         }
@@ -44,6 +45,7 @@ namespace RpgCampanhas.Controllers
                 Nome = personagem.Nome,
                 CampanhaId = personagem.CampanhaId,
                 JogadorId = personagem.JogadorId,
+                ImagePath = personagem.ImagePath
             };
             return Ok(personagemDto);
         }
@@ -57,6 +59,7 @@ namespace RpgCampanhas.Controllers
                 JogadorId = personagemDTO.JogadorId,
                 CampanhaId = personagemDTO.CampanhaId,
                 TipoFicha = "",
+                ImagePath = ""
             };
             await _personagemService.Add(personagem);
             return CreatedAtAction(nameof(GetPersonagem), new { id = personagem.Id }, personagem);
@@ -102,7 +105,8 @@ namespace RpgCampanhas.Controllers
                 Nome = c.Nome,
                 CampanhaId = c.CampanhaId,
                 JogadorId = c.JogadorId,
-                JogadorNome = c.Jogador.Nome
+                JogadorNome = c.Jogador.Nome,
+                ImagePath = c.ImagePath
             });
             
             return Ok(personagensDto);

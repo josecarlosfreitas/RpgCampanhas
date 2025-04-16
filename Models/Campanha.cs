@@ -6,7 +6,8 @@
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public long MestreId { get; set; }
-        
+        public string ImagePath { get; set; }
+
         public virtual Usuario Mestre { get; set; }
         public virtual ICollection<Personagem> Personagens { get; set; }
         public virtual ICollection<NPC> NPCs { get; set; }

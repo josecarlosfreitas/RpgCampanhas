@@ -7,5 +7,6 @@
         public long JogadorId { get; set; }
         public long CampanhaId { get; set; }
         public string JogadorNome { get; set; }
+        public string? ImagePath { get; set; }
     }
 }
