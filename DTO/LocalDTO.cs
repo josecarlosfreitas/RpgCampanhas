@@ -1,6 +1,6 @@
-﻿namespace RpgCampanhas.Models
+﻿namespace RpgCampanhas.DTO
 {
-    public class Local
+    public class LocalDTO
     {
         public long Id { get; set; }
         public string Nome { get; set; }
@@ -8,7 +8,5 @@
         public string Descricao { get; set; }
         public string Mapa { get; set; }
         public string ImagePath { get; set; }
-
-        public virtual Campanha Campanha { get; set; }
     }
 }

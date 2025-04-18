@@ -22,12 +22,18 @@ builder.Services.AddScoped<ICampanhaRepository, CampanhaRepository>();
 builder.Services.AddScoped<IPersonagemRepository, PersonagemRepository>();
 builder.Services.AddScoped<IFicha3detRepository, Ficha3detRepository>();
 builder.Services.AddScoped<IGenericRepository, GenericRepository>();
+builder.Services.AddScoped<IHistoriaRepository, HistoriaRepository>();
+builder.Services.AddScoped<INpcRepository, NpcRepository>();
+builder.Services.AddScoped<ILocalRepository, LocalRepository>();
 
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ICampanhaService, CampanhaService>();
 builder.Services.AddScoped<IPersonagemService, PersonagemService>();
 builder.Services.AddScoped<IFicha3detService, Ficha3detService>();
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+builder.Services.AddScoped<IHistoriaService, HistoriaService>();
+builder.Services.AddScoped<INpcService, NpcService>();
+builder.Services.AddScoped<ILocalService, LocalService>();
 
 builder.Services.AddSwaggerGen(c =>
 {

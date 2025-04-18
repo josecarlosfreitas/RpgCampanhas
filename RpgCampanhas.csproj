@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\ficha3det\" />
     <Folder Include="wwwroot\images\campanha\" />
+    <Folder Include="wwwroot\images\local\" />
     <Folder Include="wwwroot\images\npc\" />
     <Folder Include="wwwroot\images\personagem\" />
   </ItemGroup>

@@ -23,6 +23,7 @@ namespace RpgCampanhas.Services
                 "ficha3det" => _configuration["StorageSettings:Ficha3detImagesPath"],
                 "campanha" => _configuration["StorageSettings:CampanhaImagesPath"],
                 "npc" => _configuration["StorageSettings:NpcImagesPath"],
+                "local" => _configuration["StorageSettings:LocalImagesPath"],
                 _ => throw new ArgumentException($"Tipo de entidade desconhecido: {entityType}")
             };
         }

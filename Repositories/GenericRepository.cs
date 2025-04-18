@@ -63,5 +63,18 @@ namespace RpgCampanhas.Repositories
                 }
             }
         }
+
+        public async Task UpdateLocalImageAsync(string localId, string imagePath)
+        {
+            if (long.TryParse(localId, out var localIdLong))
+            {
+                var local = await _context.Locais.FindAsync(localIdLong);
+                if (local != null)
+                {
+                    local.ImagePath = imagePath;
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
     }
 }

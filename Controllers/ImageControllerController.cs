@@ -31,7 +31,7 @@ public class ImageController : ControllerBase
         if (uploadImageDTO.File.Length > 5 * 1024 * 1024)
             return BadRequest("O arquivo não pode ser maior que 5MB.");
 
-        var validEntityTypes = new[] { "personagem", "ficha3det", "campanha", "npc" };
+        var validEntityTypes = new[] { "personagem", "ficha3det", "campanha", "npc", "local" };
         if (!validEntityTypes.Contains(uploadImageDTO.EntityType.ToLower()))
             return BadRequest($"Tipo de entidade inválido. Tipos válidos: {string.Join(", ", validEntityTypes)}");
 
@@ -54,6 +54,9 @@ public class ImageController : ControllerBase
                     break;
                 case "npc":
                     await _repository.UpdateNpcImageAsync(uploadImageDTO.EntityId, imagePath);
+                    break;
+                case "local":
+                    await _repository.UpdateLocalImageAsync(uploadImageDTO.EntityId, imagePath);
                     break;
             }
 

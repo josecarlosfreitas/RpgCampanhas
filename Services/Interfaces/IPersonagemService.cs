@@ -4,6 +4,6 @@ namespace RpgCampanhas.Services.Interfaces
 {
     public interface IPersonagemService : IBaseService<Personagem>
     {
-        Task<IEnumerable<Personagem>> GetByCampanhaId(long mestreId);
+        Task<IEnumerable<Personagem>> GetByCampanhaId(long campanhaId);
     }
 }
