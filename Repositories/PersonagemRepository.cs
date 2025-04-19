@@ -15,5 +15,10 @@ namespace RpgCampanhas.Repositories
             {
                 return await _context.Personagens.Include(p => p.Jogador).Where(c => c.CampanhaId == campanhaId).ToListAsync();
             }
-      }
+
+            public async Task<IEnumerable<Personagem>> GetByJogadorId(long jogadorId)
+            {
+                return await _context.Personagens.Include(p => p.Jogador).Where(c => c.JogadorId == jogadorId).ToListAsync();
+            }
+    }
 }

@@ -11,5 +11,6 @@ namespace RpgCampanhas.Repositories.Interfaces
         Task Delete(long id);
         Task<IEnumerable<Usuario>> GetMestres();
         Task<IEnumerable<Usuario>> GetJogadores();
+        Task<Usuario> Login(string email, string senha);
     }
 }

@@ -9,6 +9,8 @@ using RpgCampanhas.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.WebHost.UseUrls("https://localhost:7154", "http://192.168.1.10:85");
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -77,7 +79,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
+app.UseSwagger();
     //app.UseSwaggerUI();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RpgCampanhas API v1"));
 //}

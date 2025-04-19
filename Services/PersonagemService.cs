@@ -19,5 +19,10 @@ namespace RpgCampanhas.Services
         {
             return _personagemRepository.GetByCampanhaId(campanhaId);
         }
+
+        public Task<IEnumerable<Personagem>> GetByJogadorId(long jogadorId)
+        {
+            return _personagemRepository.GetByJogadorId(jogadorId);
+        }
     }
 }

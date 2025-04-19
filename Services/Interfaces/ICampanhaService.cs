@@ -10,5 +10,6 @@ namespace RpgCampanhas.Services.Interfaces
         Task<Campanha> Update(Campanha model);
         Task Delete(long id);
         Task<IEnumerable<Campanha>> GetByMestreId(long mestreId);
+        Task<IEnumerable<Campanha>> GetByUsuario(long usuarioId);
     }
 }

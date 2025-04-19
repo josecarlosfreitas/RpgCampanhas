@@ -124,5 +124,24 @@ namespace RpgCampanhas.Controllers
             });
             return Ok(jogadoresDto);
         }
+
+        [HttpGet("login")]
+        public async Task<ActionResult<UsuarioDTO>> Login(string email, string senha)
+        {
+            var usuario = await _usuarioService.Login(email, senha);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+            var usuarioDto = new UsuarioDTO
+            {
+                Id = usuario.Id,
+                Nome = usuario.Nome,
+                Email = usuario.Email,
+                Senha = usuario.Senha,
+                Tipo = usuario.Tipo
+            };
+            return Ok(usuarioDto);
+        }
     }
 }

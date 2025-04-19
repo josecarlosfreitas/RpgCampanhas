@@ -112,5 +112,22 @@ namespace RpgCampanhas.Controllers
             return Ok(campanhasDto);
         }
 
+        [HttpGet("usuario/{usuarioId}")]
+        public async Task<ActionResult<CampanhaDTO>> GetCampanhaByUsuario(long usuarioId)
+        {
+            var campanhas = await _campanhaService.GetByUsuario(usuarioId);
+
+            var campanhasDto = campanhas.Select(c => new CampanhaDTO
+            {
+                Id = c.Id,
+                Nome = c.Nome,
+                Descricao = c.Descricao,
+                MestreId = c.MestreId,
+                ImagePath = c.ImagePath
+            });
+
+            return Ok(campanhasDto);
+        }
+
     }
 }

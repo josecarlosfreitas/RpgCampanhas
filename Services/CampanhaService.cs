@@ -42,5 +42,10 @@ namespace RpgCampanhas.Services
         {
             return _campanhaRepository.GetByMestreId(mestreId);
         }
+
+        public Task<IEnumerable<Campanha>> GetByUsuario(long usuarioId)
+        {
+            return _campanhaRepository.GetByUsuario(usuarioId);
+        }
     }
 }

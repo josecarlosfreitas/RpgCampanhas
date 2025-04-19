@@ -112,5 +112,23 @@ namespace RpgCampanhas.Controllers
             return Ok(personagensDto);
         }
 
+        [HttpGet("jogador/{jogadorId}")]
+        public async Task<ActionResult<PersonagemDTO>> GetPersonagemByJogadorId(long jogadorId)
+        {
+            var personagens = await _personagemService.GetByJogadorId(jogadorId);
+
+            var personagensDto = personagens.Select(c => new PersonagemDTO
+            {
+                Id = c.Id,
+                Nome = c.Nome,
+                CampanhaId = c.CampanhaId,
+                JogadorId = c.JogadorId,
+                JogadorNome = c.Jogador.Nome,
+                ImagePath = c.ImagePath
+            });
+
+            return Ok(personagensDto);
+        }
+
     }
 }

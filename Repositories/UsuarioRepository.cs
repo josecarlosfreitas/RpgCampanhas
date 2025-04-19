@@ -61,5 +61,10 @@ namespace RpgCampanhas.Repositories
             return await _context.Usuarios.Where(u => u.Tipo == TIPO_JOGADOR).ToListAsync();
         }
 
+        public async Task<Usuario> Login(string email, string senha)
+        {
+            return await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Email == email && u.Senha == senha);
+        }
     }
 }

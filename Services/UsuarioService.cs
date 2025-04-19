@@ -47,5 +47,10 @@ namespace RpgCampanhas.Services
         {
             return _usuarioRepository.GetJogadores();
         }
+
+        public Task<Usuario> Login(string email, string senha)
+        {
+            return _usuarioRepository.Login(email, senha);
+        }
     }
 }
