@@ -98,7 +98,7 @@ namespace RpgCampanhas.Controllers
         public async Task<ActionResult<PersonagemDTO>> GetPersonagemByCampanhaId(long campanhaId)
         {
             var personagens = await _personagemService.GetByCampanhaId(campanhaId);
-            
+
             var personagensDto = personagens.Select(c => new PersonagemDTO
             {
                 Id = c.Id,
@@ -108,7 +108,7 @@ namespace RpgCampanhas.Controllers
                 JogadorNome = c.Jogador.Nome,
                 ImagePath = c.ImagePath
             });
-            
+
             return Ok(personagensDto);
         }
 
@@ -130,5 +130,25 @@ namespace RpgCampanhas.Controllers
             return Ok(personagensDto);
         }
 
+        [HttpGet("campanha/{campanhaId}/jogador/{jogadorId}")]
+        public async Task<ActionResult<PersonagemDTO>> GetPersonagemByCampanhaIdEJogadorId(long campanhaId, long jogadorId)
+        {
+            var personagens = await _personagemService.GetByCampanhaIdEJogadorId(campanhaId, jogadorId);
+            if (personagens == null)
+            {
+                return Ok(new List<PersonagemDTO>());
+            }
+            var personagemDto = personagens.Select(personagem => new PersonagemDTO
+            {
+                Id = personagem.Id,
+                Nome = personagem.Nome,
+                CampanhaId = personagem.CampanhaId,
+                JogadorId = personagem.JogadorId,
+                JogadorNome = personagem.Jogador.Nome,
+                ImagePath = personagem.ImagePath
+            });
+            return Ok(personagemDto);
+
+        }
     }
 }

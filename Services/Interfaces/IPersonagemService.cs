@@ -6,5 +6,6 @@ namespace RpgCampanhas.Services.Interfaces
     {
         Task<IEnumerable<Personagem>> GetByCampanhaId(long campanhaId);
         Task<IEnumerable<Personagem>> GetByJogadorId(long jogadorId);
+        Task<IEnumerable<Personagem>> GetByCampanhaIdEJogadorId(long campanhaId, long jogadorId);
     }
 }
